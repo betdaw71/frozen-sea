@@ -71,7 +71,7 @@ def article(request,genre,pk):
 			Comment.objects.create(body = form.cleaned_data['comment'],article=article,author=request.user)
 	else:
 		form = ComentForm()
-	ifra = ifra.split(' ')
+	ifra = ifr.split(' ')
 	ifra = [i + ' ' for i in ifra]
 	return render(request,'film_article/article.html',{'comments':comments,'article':article,'random_film':random_film,'iframe':ifra,'random_serial':random_serial,'form':form})
 
