@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="col-lg-12">
+    <form action="" method="post">
+      {% csrf_token %}
+      <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
+      {{ form|crispy}}
+      <br>
+      <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+    </form>
+  <br>
+</div>
+{% endblock %}

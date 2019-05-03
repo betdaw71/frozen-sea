@@ -1,0 +1,144 @@
+{% extends 'base_category.html' %}
+{% load crispy_forms_tags %}
+
+{% block category_name %}
+	{{ article.title }}
+{% endblock %}
+
+{% block con %}
+<style type="text/css">
+	li{
+		margin: 5px;
+		margin-right: 50px;
+
+	}
+
+
+</style>
+<div style="padding: 10px;">
+	<h3>{{ article.title }}</h3>
+	<div style="width: 100%">{{ article.original_name}}<span class="col-lg">{{article.created}}</span></div>
+	<div class="row" style="margin-top: 20px;">
+		<div class="col-lg-5">
+			<img src="{{article.img}}"width=auto height=450px;>
+			<div class="row" style="margin: 10px">
+				<b style="margin-right: 20px; margin-top: 15px;">{{ article.likes.all.count }}</b>
+				<form method="post" action="{% url 'like-post' article.ganre.all.last.pk article.pk %}">
+					{% csrf_token %}
+					{% if request.user.is_authenticated == True %}
+					<button type="submit" class="btn btn-lg" style='background-color:transparent;color :white;'>
+						Like
+					</button>
+					{% else %}
+					<a href='#' class="btn btn-lg" style='background-color:transparent;color :white;'>
+						Like
+					</a>
+					<hr>
+					<em>Авторизуйтесь</em>
+					{% endif %}
+				</form>
+			</div>
+
+		</div>
+		<div class="col-lg-7" style="margin-left: 0px;">
+			<ul class="list-group" style="list-style: none;">
+				<li >
+					<span class="col-lg-8 text-secondary" width=100px;>Качество</span>
+					<span class="col-lg-4">{{ article.quolity}}</span>
+				</li>
+				<li>
+					<span class="col-lg-6 text-secondary">Страна</span>
+					<span class="col-lg-6">{{ article.country }}</span>				
+				</li>
+				<li>
+					<span class="col-lg-6 text-secondary">Год</span>
+					<span class="col-lg-6">{{article.data}}</span>					
+				</li>
+
+				<li>
+					<span class="col-lg-6 text-secondary">Доступно</span>
+					<span class="col-lg-6">iOS, IPad, IPhone, Android и Windows Phone</span>					
+				</li>
+				<li>
+					<span class="col-lg-6 text-secondary">Жанр</span>
+					<span class="col-lg-6">{% for i in article.ganre.all %}
+													<a href="{% url 'film_genre' i.pk%}" style="text-decoration: none;color:white;">{{i}}</a>,
+											{% endfor %}
+					</span>					
+				</li>
+				<li>
+					<span class="col-lg-6 text-secondary">Время</span>
+					<span class="col-lg-6">{{article.length}}</span>					
+				</li>
+				<li>
+					<span class="col-lg-6 text-secondary">Перевод</span>
+					<span class="col-lg-6">{{article.translation}}</span>				
+				</li>
+				<li>
+					<span class="col-lg-6 text-secondary">Режисер</span>
+					<span class="col-lg-6">{{article.director}}</span>					
+				</li>
+				<li>
+					<span class="col-lg-6 text-secondary">Актеры</span>
+					<span class="col-lg-6">{{article.actor}}</span>					
+				</li>
+			</ul>
+<hr></hr>
+			<p>
+				Увлеченные ребята ловко рассекают воздух в наиболее отдаленных уголках планеты, мчась по заснеженным горам, парни преодолевают трамплины и холмы, кажется, их ноги стоят не на снаряде, а легком облаке, картина «Четвёртая фаза» посвящена смелым экстремалам, которым кажется не знакомо чувство страха. Герои восхищают зрителей пилотажем, когда с ветерком виртуозно преодолевают дистанцию. Захватывающий спорт завораживают не только исполнителей трюков, но наблюдателей. Приятели соревнуются, устанавливая новые рекорды, паря по лихим дорожкам, вдохновляя зевак на подвиги.
+
+				Естественно, зрителям кажется, что они сейчас, облачатся в снаряжение и рванут вперед, но чтобы достичь высоких результатов, необходимо вложить немалый труд, пропитанный потом и горестями ошибок и провалов. Безбрежные снежные просторы манят красотами и влекут к новым свершениям. Летит не только сноубордист, а его душа взлетает от восторга. Накатанный упруго снег,  отбиваясь от доски, помогает энтузиастам скользить без опаски. Безлюдные заснеженные склоны кажутся строгими, горы вокруг словно караул.  Когда развивается запредельная скорость, слышится, как ветер исполняет серенады, но у отважных малых словно крылья за спиной и остановить их нет возможности.  Съемочная группа стремиться отснять наиболее важные моменты гонок, дабы показать все величие неповторимого спорта.
+			</p>
+		</div>
+		<div class="col-lg-12">
+			<nav>
+			  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+			    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" style="color: black;">Фильм</a>
+			    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"style="color: black;">Трейлер</a>
+
+			  </div>
+			</nav>
+			<div class="tab-content" id="nav-tabContent">
+			  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">{% autoescape off %}
+
+								{{ iframe }}
+
+							{% endautoescape %}
+				</div>
+			  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+			  				{% autoescape off %}
+			  					{{ article.trailer }}
+			  				{% endautoescape %}
+			  </div>
+			  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+			</div>
+
+		</div>
+	</div>
+	<hr>
+	{% if request.user.is_authenticated == True%}
+    <form action="" method="post" novalidate>
+      {% csrf_token %}
+      <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
+      {{ form|crispy}}
+      <br>
+      <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+    {% else %}
+    	<p>Авторизуйтесь ,чтобы оставить коментарий</p>
+    {% endif %}
+	<hr>
+	<h2>Комментарии:</h2>
+	<div>
+	{% for i in comments %}
+	<div class="card" style="background-color: #2F3E54;">
+	  <h5 class="card-header"><a href="{% url 'profile' i.author %}" style="color: white">{{ i.author }}</a></h5>
+	  <div class="card-body">
+	    <p class="card-text">{{ i.body }}</p>
+	  </div>
+	</div>
+	<br>
+	{% endfor %}
+</div>
+</div>
+{% endblock %}

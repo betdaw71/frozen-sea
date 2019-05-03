@@ -1,0 +1,49 @@
+{% extends 'base_category.html' %}
+
+	{% block category_name %}
+		Films
+	{% endblock %}
+
+	{% block con %}
+
+		<div style="padding: 5px;">
+			
+			<h3 style="text-align: center;">Смотреть фильмы онлайн в HD</h3>
+			<div class="row" style="padding:10px;padding-right: 20px;padding-left: 20px;">
+				{% for i in genre %}
+				<div class="col-lg-4" style="text-align: center;padding: 5px;">
+					<a href="films/{{i.pk}}" style="background-color: white;text-decoration: none;"><div style="background-color: #3b4969;height: 40px;padding-top : 5px;border-radius: 5px;"><a href="films/{{i.pk}}" style="color: white;text-decoration: none;">{{i}}</a></div></a>
+				</div>
+				{% endfor %}
+			</div>
+		<hr width=100% />
+		<div class="row" style="margin: 0px;">
+			{% for i in articles %}
+			<div class="col-lg-4" style="padding: 5px;margin-bottom: 50px;">
+				<img src="{{ i.img}}" style="width: 100%;height: 100%;">
+				<span style="text-align: center;"><div class="secondary" style="text-align: center;"><a href = 'films/{{i.ganre.all.last.pk}}/{{i.pk}}' style = 'color:white;text-decoration: none'>{{i}}</a></div></span>
+			</div>
+			{% endfor %}
+		</div>
+		</div>
+		<div class="row">
+ 			<div class="col-lg-12" style="text-align: center;" >
+		    {% if articles.has_previous %}
+		        <a class="btn btn-primary" href="?page={{ articles.previous_page_number }}">←</a>
+		    {% endif %}
+		 
+		    {% for num in articles.paginator.page_range %}
+		    	{% if forloop.counter <= 10 %}
+			        {% if num == articles.number %}
+			            <span class="current btn btn-primary active"><b>{{ num  }}</b></span>
+			        {% endif %} 
+		       		{% endif %}
+		    {% endfor %}
+		 
+		    {% if articles.has_next %}
+		        <a class="btn btn-primary" href="?page={{ articles.next_page_number }}">→</a>
+		    {% endif %}
+		 
+		</div>
+
+	{% endblock %}

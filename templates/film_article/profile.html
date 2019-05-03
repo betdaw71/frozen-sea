@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-lg-12" style="text-align: center;">
+			<h3>Имя Пользователя: {{ username }}</h3> 
+		</div>
+		<div class="col-lg-12">
+			<h3>Понравившиеся:</h3>
+		<div class="row" style="margin: 0px;">
+			{% for i in liked %}
+			<div class="col-lg-3" style="padding: 5px;margin-bottom: 50px;">
+				<img src="{{ i.img}}" style="width: 100%;height: 100%;">
+				<span style="text-align: center;"><div class="secondary" style="text-align: center;"><a href = "{% url 'article' i.ganre.all.last.pk i.pk %}" style = 'color:white;text-decoration: none'>{{i}}</a></div></span>
+			</div>
+			{% endfor %}
+		</div>
+		</div>
+	</div>
+{% endblock %}
