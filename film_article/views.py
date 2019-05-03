@@ -73,7 +73,7 @@ def article(request,genre,pk):
 		form = ComentForm()
 	ifra = ifr.split(' ')
 	ifra = [i + ' ' for i in ifra]
-	return render(request,'film_article/article.html',{'comments':comments,'article':article,'random_film':random_film,'iframe':ifra,'random_serial':random_serial,'form':form})
+	return render(request,'film_article/article.html',{'comments':comments,'article':article,'random_film':random_film,'iframe':ifr,'random_serial':random_serial,'form':form})
 
 def film_genre(request,genre):
 	random_film = random.choice(Article.objects.all().filter(category=Category.objects.get(title='Films')))
