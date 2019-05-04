@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 X_FRAME_OPTIONS = 'DENY'
-X_FRAME_OPTIONS = 'ALLOW-FROM localhost'
+X_FRAME_OPTIONS = 'ALLOW-FROM hdkino.vip'
 
 
 ROOT_URLCONF = 'cinema.urls'
