@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 X_FRAME_OPTIONS = 'DENY'
-X_FRAME_OPTIONS = 'ALLOW-FROM http://cdn.filmtybe.pl/'
+X_FRAME_OPTIONS = 'ALLOW-FROM localhost'
 
 
 ROOT_URLCONF = 'cinema.urls'
