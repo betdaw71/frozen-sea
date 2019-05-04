@@ -75,6 +75,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cinema.wsgi.application'
 
+SECURE_SSL_REDIRECT = False
+
+
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
