@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+X_FRAME_OPTIONS = 'DENY'
 X_FRAME_OPTIONS = 'ALLOW-FROM http://hdkino.vip/'
 
 
@@ -74,9 +75,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'cinema.wsgi.application'
-
-SECURE_SSL_REDIRECT = False
-
 
 
 # Database
