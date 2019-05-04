@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-# X_FRAME_OPTIONS = 'ALLOW-FROM hdkino.vip'
+X_FRAME_OPTIONS = 'ALLOW-FROM http://hdkino.vip/'
 
 
 ROOT_URLCONF = 'cinema.urls'
