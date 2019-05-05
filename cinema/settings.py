@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'a*r_npyz)*x7ias8sv2mxy0*+5klj+9frg@^4u$&lu^g6h^xrx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost','frozen-sea-90733.herokuapp.com']
 
