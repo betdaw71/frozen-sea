@@ -143,11 +143,11 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
 
 
-#AWS S3 Static
-# AWS_STATIC_LOCATION = 'static'
-# STATIC_URL = 'http://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_STATIC_LOCATION)
-# STATICFILES_DIR = [os.path.join(BASE_DIR, 'static')]
-# STATICFILES_STORAGE = 'cinema.storage_backends.StaticStorage'
+# AWS S3 Static
+AWS_STATIC_LOCATION = 'static'
+STATIC_URL = 'http://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_STATIC_LOCATION)
+STATICFILES_DIR = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_STORAGE = 'cinema.storage_backends.StaticStorage'
 
 #AWS S3 Private Media Upload
 AWS_MEDIA_LOCATION = 'media'
