@@ -29,7 +29,7 @@ class Article(models.Model):
 	iframe = models.TextField()
 	trailer = models.TextField(default="")
 	ganre = models.ManyToManyField(Genre)
-	img = models.ImageField(upload_to='/media/' default='media/default.jpg')
+	img = models.ImageField(upload_to='media/', default='media/default.jpg')
 	category = models.ForeignKey(Category,on_delete=models.CASCADE)
 	created = models.DateField(auto_now_add = True, null=True, blank=True)
 	likes = models.ManyToManyField(User,blank = True)
