@@ -136,11 +136,11 @@ import dj_database_url
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
-# AWS_ACCESS_KEY_ID = 'AKIAR5VRFDXAKFGUZ2OV'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'cinema.media'
-# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-# AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+AWS_ACCESS_KEY_ID = 'AKIAR5VRFDXAKFGUZ2OV'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'cinema.media'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
 
 
 #AWS S3 Static
@@ -150,9 +150,9 @@ DATABASES['default'].update(db_from_env)
 # STATICFILES_STORAGE = 'cinema.storage_backends.StaticStorage'
 
 #AWS S3 Private Media Upload
-# AWS_MEDIA_LOCATION = 'media'
-# PRIVATE_FILE_STORAGE = 'cinema.storage_backends.MediaStorage'
+AWS_MEDIA_LOCATION = 'media'
+PRIVATE_FILE_STORAGE = 'cinema.storage_backends.MediaStorage'
 
 #AWS S3 Public Media Upload
-# AWS_PUBLIC_LOCATION = 'public'
-#DEFAULT_FILE_STORAGE = 'cinema.storage_backends.PublicStorage'
+AWS_PUBLIC_LOCATION = 'public'
+DEFAULT_FILE_STORAGE = 'cinema.storage_backends.PublicStorage'
