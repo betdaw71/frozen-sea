@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 import datetime
-from cinema.storage_backends import MediaStorage
 
 
 # Create your models here.
