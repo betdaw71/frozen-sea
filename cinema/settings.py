@@ -163,10 +163,9 @@ DATABASES['default'].update(db_from_env)
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')  # пустая папка, сюда будет собирать статику collectstatic
-
 # путь до папки media, в общем случае она пуста в начале
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
-
+STATIC_URL = '/static/'
 MEDIA_URL = '/media/'  # URL для медии в шаблонах
 
 
