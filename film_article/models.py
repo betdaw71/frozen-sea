@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 import datetime
+from cinema.storage_backends import MediaStorage
 
 
 # Create your models here.
@@ -28,7 +29,7 @@ class Article(models.Model):
 	iframe = models.TextField()
 	trailer = models.TextField(default="")
 	ganre = models.ManyToManyField(Genre)
-	img = models.ImageField(upload_to = 'media/', default = 'media/default.jpg')
+	img = models.ImageField(storage=MediaStorage())
 	category = models.ForeignKey(Category,on_delete=models.CASCADE)
 	created = models.DateField(auto_now_add = True, null=True, blank=True)
 	likes = models.ManyToManyField(User,blank = True)
