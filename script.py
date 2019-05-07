@@ -2,7 +2,7 @@ from film_article.models import Article,Genre,Category
 import csv
 import requests
 
-with open('dict_output2.csv','r',newline='') as file:
+with open('dict_output1.csv','r',newline='') as file:
 	reader = csv.reader(file,delimiter=',')
 	i = False
 	for row in reader:
