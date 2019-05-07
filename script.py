@@ -14,15 +14,8 @@ with open('dict_output2.csv','r',newline='') as file:
 				except:
 					pass
 			
-			try:
-				p = requests.get(row[6])
-				a = '/home/betdav71/Рабочий стол/proj/cinema/media/%s.jpg'%(str(row[1]).replace(' ','_').replace('/','-'))
-				n = '/media/%s.jpg'%(str(row[1]).replace(' ','_').replace('/','-'))
-				out = open(a,'wb')
-				out.write(p.content)
-				out.close
-			except:
-				n = '/media/%s.jpg'%(str(row[1]).replace(' ','_').replace('/','-'))
+
+			n = 'https://s3.us-east-2.amazonaws.com/cinema.media/%s.jpg'%(str(row[1]).replace(' ','_').replace('/','-'))
 			try:
 				leng =int(row[9].strip().split(' ')[0])
 			except:
