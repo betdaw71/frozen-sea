@@ -132,11 +132,17 @@ import dj_database_url
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
-# AWS_ACCESS_KEY_ID = 'AKIAR5VRFDXAKFGUZ2OV'
-# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_ACCESS_KEY_ID = 'AKIAR5VRFDXAIXBO5N7V'
+# AWS_SECRET_ACCESS_KEY = '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'
 # AWS_STORAGE_BUCKET_NAME = 'cinema.media'
-# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-# AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+# # AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# # AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+
+
+
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_DEFAULT_ACL = None
+# DEFAU_FILE_STORAGE ='storages.backends.s3boto3.S3Boto3Storage'
 
 
 # # AWS S3 Static
