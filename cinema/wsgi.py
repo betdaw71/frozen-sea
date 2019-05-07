@@ -15,3 +15,4 @@ from whitenoise.django import DjangoWhiteNoise
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cinema.settings')
 
 application = DjangoWhiteNoise(get_wsgi_application())
+application.add_files('/home/betdav71/Рабочий стол/proj/cinema/media', prefix='media/')
