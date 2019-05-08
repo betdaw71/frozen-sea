@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from film_article.models import Article,Genre,Category,Comment
+from film_article.models import Article,Genre,Category,Comment,Star_article
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic.edit import FormView,View
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
@@ -16,8 +16,9 @@ def index(request):
 	ganres = Genre.objects.all()
 	films = Article.objects.all().filter(category=Category.objects.get(title='Films'))[:15]
 	serials =Article.objects.all().filter(category=Category.objects.get(title='Serials'))[:15]
+	stars = Star_article.objects.all()
 	# films = Article.objects.all().filter(quolity=)[:15]
-	return render(request,'film_article/index.html',{'films':films,'serials':serials})
+	return render(request,'film_article/index.html',{'films':films,'serials':serials,'stars':stars})
 
 def films(request):
 	ganres = Genre.objects.filter(category=Category.objects.get(title='Films'))

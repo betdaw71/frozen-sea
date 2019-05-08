@@ -53,3 +53,7 @@ class Comment(models.Model):
 
 class Star_article(models.Model):
 	article = models.ForeignKey(Article,on_delete=models.CASCADE)
+	def __str__(self):
+		return self.article.title
+	class Meta:
+		ordering = ('article',)
