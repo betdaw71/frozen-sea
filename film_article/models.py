@@ -50,3 +50,6 @@ class Comment(models.Model):
 	author = models.ForeignKey(User,on_delete=models.CASCADE)
 	article = models.ForeignKey(Article,on_delete=models.CASCADE)
 	body = models.TextField()
+
+class Star_article(models.Model):
+	article = models.ForeignKey(Article,on_delete=models.CASCADE)
