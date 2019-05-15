@@ -14,7 +14,9 @@ urlpatterns = [
 	path('logout/',views.LogoutView.as_view(),name='logout'),
 	path('profile/<str:username>/',views.profile,name='profile'),
 	path('films/<int:genre>/<int:pk>/like',views.like_post,name='like-post'),
-	path('search',views.search,name='search')
+	path('search',views.search,name='search'),
+    path('sitemap.xml', views.sitemap)
+
 ]
 
 
