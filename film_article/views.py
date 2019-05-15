@@ -140,4 +140,4 @@ def search(request):
 	return render(request,'film_article/search.html',{'random_film':random_film,'random_serial':random_serial,'articles':posts})
 
 def sitemap(request):
-	return render(request,open('sitemap.xml').read())
+	return render(request,open('sitemap.xml'))
