@@ -140,4 +140,11 @@ def search(request):
 	return render(request,'film_article/search.html',{'random_film':random_film,'random_serial':random_serial,'articles':posts})
 
 def sitemap(request):
-	return render(request,open('sitemap.xml'))
+	from django.utils.encoding import smart_str
+
+	response = HttpResponse(mimetype='application/force-download') # mimetype is replaced by content_type for django 1.7
+	response['Content-Disposition'] = 'attachment; filename=%s' % smart_str('sitemap.xml')
+	response['X-Sendfile'] = smart_str('sitemap.xml')
+	# It usually a good idea to set the 'Content-Length' header too.
+	# You can also set any other required headers: Cache-Control, etc.
+	return response
