@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'film_article',
     'crispy_forms',
-    'storages'
+    # 'storages'
 ]
 
 MIDDLEWARE = [
